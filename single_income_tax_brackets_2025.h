@@ -1,20 +1,17 @@
 #pragma once
 
 class TaxTable{
-
   public:
     static double getIncomeTax(double taxable_income){
-      
       const double bracket_limits[] = 
       {0.0,
-      11600.0,
-      47150.0,
-      100525.0,
-      191950.0, 
-      243725.0,
-      609350.0,
+      11925.0,
+      48475.0,
+      103350.0,
+      197301.0, 
+      250525.0,
+      626350.0,
       999999999.0};
-
 
       const double bracket_rates[] = 
       {0.0,
@@ -27,7 +24,6 @@ class TaxTable{
       0.37};
       
       double tax = 0.0;
-      
       for(int i = 1; i < 8; i++){
         if(taxable_income > bracket_limits[i]){
           tax += (bracket_limits[i] - bracket_limits[i-1]) * bracket_rates[i];
@@ -37,8 +33,7 @@ class TaxTable{
           break;
         }
       }  
+
       return tax;
     }
 };
-
-
